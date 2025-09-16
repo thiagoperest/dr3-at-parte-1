@@ -22,7 +22,8 @@ public class Dr3AtParte1Application {
 
         System.out.println("Servidor Javalin iniciado na porta: " + PORT);
         System.out.println("Endpoints Rubrica 1:");
-        System.out.println("1: http://localhost:" + PORT + "/hello");
+        System.out.println("Item 1: http://localhost:" + PORT + "/hello");
+        System.out.println("Item 2: http://localhost:" + PORT + "/status");
     }
 
 }
