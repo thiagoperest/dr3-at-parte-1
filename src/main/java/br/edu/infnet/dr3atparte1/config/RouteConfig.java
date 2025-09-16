@@ -1,5 +1,6 @@
 package br.edu.infnet.dr3atparte1.config;
 
+import br.edu.infnet.dr3atparte1.controller.EchoController;
 import br.edu.infnet.dr3atparte1.controller.HelloController;
 import br.edu.infnet.dr3atparte1.controller.StatusController;
 import io.javalin.Javalin;
@@ -13,6 +14,9 @@ public class RouteConfig {
         
         // Rubrica 1, item 2 -> Rota do endpoint "status"
         app.get("/status", StatusController::status);
+        
+        // Rubrica 1, item 3 -> Rota do endpoint "echo"
+        app.post("/echo", EchoController::echo);
     }
 
 }
