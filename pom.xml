@@ -42,6 +42,14 @@
             <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Javalin Test Tools -->
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin-testtools</artifactId>
+            <version>6.7.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
