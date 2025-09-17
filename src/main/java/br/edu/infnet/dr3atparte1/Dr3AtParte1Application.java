@@ -26,6 +26,9 @@ public class Dr3AtParte1Application {
         System.out.println("Item 2: http://localhost:" + PORT + "/status");
         System.out.println("Item 3: http://localhost:" + PORT + "/echo");
         System.out.println("Item 4: http://localhost:" + PORT + "/saudacao/{nome}");
+        System.out.println("");
+        System.out.println("Endpoints Rubrica 4:");
+        System.out.println("Item 1: http://localhost:" + PORT + "/mensalistas");
     }
 
 }

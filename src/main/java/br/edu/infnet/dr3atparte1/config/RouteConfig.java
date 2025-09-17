@@ -2,6 +2,7 @@ package br.edu.infnet.dr3atparte1.config;
 
 import br.edu.infnet.dr3atparte1.controller.EchoController;
 import br.edu.infnet.dr3atparte1.controller.HelloController;
+import br.edu.infnet.dr3atparte1.controller.MensalistaController;
 import br.edu.infnet.dr3atparte1.controller.SaudacaoController;
 import br.edu.infnet.dr3atparte1.controller.StatusController;
 import io.javalin.Javalin;
@@ -21,6 +22,9 @@ public class RouteConfig {
         
         // Rubrica 1, item 4 -> Rota do endpoint "saudacao"
         app.get("/saudacao/{nome}", SaudacaoController::saudacao);
+        
+        // Rubrica 4, item 1 -> Rota para listar todos os mensalistas
+        app.get("/mensalistas", MensalistaController::getAllMensalistas);
     }
 
 }
