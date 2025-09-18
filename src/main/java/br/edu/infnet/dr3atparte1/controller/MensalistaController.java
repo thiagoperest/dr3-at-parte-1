@@ -1,5 +1,6 @@
 package br.edu.infnet.dr3atparte1.controller;
 
+import br.edu.infnet.dr3atparte1.dto.MensalistaRequestDto;
 import br.edu.infnet.dr3atparte1.dto.MensalistaResponseDto;
 import br.edu.infnet.dr3atparte1.service.MensalistaService;
 import io.javalin.http.Context;
@@ -24,5 +25,11 @@ public class MensalistaController {
         } else {
             ctx.status(404).json("Mensalista não encontrado");
         }
+    }
+
+    public static void createMensalista(Context ctx) {
+        MensalistaRequestDto request = ctx.bodyAsClass(MensalistaRequestDto.class);
+        MensalistaResponseDto response = mensalistaService.createMensalista(request);
+        ctx.status(201).json(response);
     }
 }

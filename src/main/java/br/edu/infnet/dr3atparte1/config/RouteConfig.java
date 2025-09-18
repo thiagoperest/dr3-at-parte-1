@@ -28,6 +28,9 @@ public class RouteConfig {
         
         // Rubrica 4, item 2 -> Rota para obter mensalista por matrícula
         app.get("/mensalistas/{matricula}", MensalistaController::getMensalistaByMatricula);
+        
+        // Rubrica 4, item 3 -> Rota para criar novo mensalista
+        app.post("/mensalistas", MensalistaController::createMensalista);
     }
 
 }

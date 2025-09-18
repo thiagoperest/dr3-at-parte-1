@@ -1,5 +1,6 @@
 package br.edu.infnet.dr3atparte1.service;
 
+import br.edu.infnet.dr3atparte1.dto.MensalistaRequestDto;
 import br.edu.infnet.dr3atparte1.dto.MensalistaResponseDto;
 import br.edu.infnet.dr3atparte1.model.Mensalista;
 
@@ -38,5 +39,25 @@ public class MensalistaService {
         }
         
         return null;
+    }
+
+    public MensalistaResponseDto createMensalista(MensalistaRequestDto request) {
+        Long id = getMensalistasData().size() + 1L;
+
+        Mensalista novoMensalista = new Mensalista(
+                id,
+                request.getMatricula(), 
+                request.getNome(), 
+                request.getCargo(), 
+                request.getSalario()
+        );
+
+        return new MensalistaResponseDto(
+                novoMensalista.getId(),
+                novoMensalista.getMatricula(),
+                novoMensalista.getNome(),
+                novoMensalista.getCargo(),
+                novoMensalista.getSalario()
+        );
     }
 }
