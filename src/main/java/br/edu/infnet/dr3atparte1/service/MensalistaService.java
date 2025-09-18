@@ -3,6 +3,7 @@ package br.edu.infnet.dr3atparte1.service;
 import br.edu.infnet.dr3atparte1.dto.MensalistaRequestDto;
 import br.edu.infnet.dr3atparte1.dto.MensalistaResponseDto;
 import br.edu.infnet.dr3atparte1.model.Mensalista;
+import br.edu.infnet.dr3atparte1.validator.MensalistaValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +43,8 @@ public class MensalistaService {
     }
 
     public MensalistaResponseDto createMensalista(MensalistaRequestDto request) {
+        MensalistaValidator.validate(request);
+        
         Long id = getMensalistasData().size() + 1L;
 
         Mensalista novoMensalista = new Mensalista(

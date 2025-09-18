@@ -2,6 +2,7 @@ package br.edu.infnet.dr3atparte1.controller;
 
 import br.edu.infnet.dr3atparte1.dto.MensalistaRequestDto;
 import br.edu.infnet.dr3atparte1.dto.MensalistaResponseDto;
+import br.edu.infnet.dr3atparte1.exception.MensalistaValidationException;
 import br.edu.infnet.dr3atparte1.service.MensalistaService;
 import io.javalin.http.Context;
 
@@ -28,8 +29,12 @@ public class MensalistaController {
     }
 
     public static void createMensalista(Context ctx) {
-        MensalistaRequestDto request = ctx.bodyAsClass(MensalistaRequestDto.class);
-        MensalistaResponseDto response = mensalistaService.createMensalista(request);
-        ctx.status(201).json(response);
+        try {
+            MensalistaRequestDto request = ctx.bodyAsClass(MensalistaRequestDto.class);
+            MensalistaResponseDto response = mensalistaService.createMensalista(request);
+            ctx.status(201).json(response);
+        } catch (MensalistaValidationException e) {
+            ctx.status(400).json("{\"error\": \"" + e.getMessage() + "\"}");
+        }
     }
 }
