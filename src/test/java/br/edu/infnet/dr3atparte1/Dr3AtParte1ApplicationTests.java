@@ -72,4 +72,36 @@ class Dr3AtParte1ApplicationTests {
         });
     }
 
+    @Test
+    @DisplayName("Teste de integração do endpoint /mensalistas após POST")
+    void testGetAllMensalistasEndpoint() throws Exception {
+        // Arrange
+        Javalin app = Javalin.create();
+        RouteConfig.configureRoutes(app);
+
+        // Act & Assert
+        JavalinTest.test(app, (server, client) -> {
+            try {
+                MensalistaRequestDto novoMensalista = new MensalistaRequestDto("M004", "Thiago Peres", "Desenvolvedor de Software III", 18000.0);
+                ObjectMapper mapper = new ObjectMapper();
+                String jsonBody = mapper.writeValueAsString(novoMensalista);
+
+                var createResponse = client.post("/mensalistas", jsonBody);
+                assertEquals(201, createResponse.code());
+
+                var listResponse = client.get("/mensalistas");
+                assertEquals(200, listResponse.code());
+
+                String responseBody = listResponse.body().string();
+                assertTrue(responseBody.contains("["));
+                // Verifica os dados do mock
+                assertTrue(responseBody.contains("João Silva"));
+                assertTrue(responseBody.contains("Maria Santos"));
+                assertTrue(responseBody.contains("Pedro Oliveira"));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
 }
