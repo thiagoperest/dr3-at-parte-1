@@ -14,4 +14,15 @@ public class MensalistaController {
         List<MensalistaResponseDto> mensalistas = mensalistaService.getAllMensalistas();
         ctx.json(mensalistas);
     }
+
+    public static void getMensalistaByMatricula(Context ctx) {
+        String matricula = ctx.pathParam("matricula");
+        MensalistaResponseDto mensalista = mensalistaService.getMensalistaByMatricula(matricula);
+        
+        if (mensalista != null) {
+            ctx.json(mensalista);
+        } else {
+            ctx.status(404).json("Mensalista não encontrado");
+        }
+    }
 }

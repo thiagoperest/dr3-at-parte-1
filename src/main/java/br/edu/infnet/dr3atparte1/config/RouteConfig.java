@@ -25,6 +25,9 @@ public class RouteConfig {
         
         // Rubrica 4, item 1 -> Rota para listar todos os mensalistas
         app.get("/mensalistas", MensalistaController::getAllMensalistas);
+        
+        // Rubrica 4, item 2 -> Rota para obter mensalista por matrícula
+        app.get("/mensalistas/{matricula}", MensalistaController::getMensalistaByMatricula);
     }
 
 }

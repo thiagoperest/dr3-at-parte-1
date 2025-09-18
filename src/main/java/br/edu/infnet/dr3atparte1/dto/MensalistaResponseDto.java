@@ -3,6 +3,7 @@ package br.edu.infnet.dr3atparte1.dto;
 public class MensalistaResponseDto {
 
     private Long id;
+    private String matricula;
     private String nome;
     private String cargo;
     private Double salario;
@@ -10,8 +11,9 @@ public class MensalistaResponseDto {
     public MensalistaResponseDto() {
     }
 
-    public MensalistaResponseDto(Long id, String nome, String cargo, Double salario) {
+    public MensalistaResponseDto(Long id, String matricula, String nome, String cargo, Double salario) {
         this.id = id;
+        this.matricula = matricula;
         this.nome = nome;
         this.cargo = cargo;
         this.salario = salario;
@@ -23,6 +25,14 @@ public class MensalistaResponseDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getNome() {
@@ -53,6 +63,7 @@ public class MensalistaResponseDto {
     public String toString() {
         return "MensalistaResponseDto{" +
                 "id=" + id +
+                ", matricula='" + matricula + '\'' +
                 ", nome='" + nome + '\'' +
                 ", cargo='" + cargo + '\'' +
                 ", salario=" + salario +

@@ -3,6 +3,7 @@ package br.edu.infnet.dr3atparte1.model;
 public class Mensalista {
 
     private Long id;
+    private String matricula;
     private String nome;
     private String cargo;
     private Double salario;
@@ -10,8 +11,9 @@ public class Mensalista {
     public Mensalista() {
     }
 
-    public Mensalista(Long id, String nome, String cargo, Double salario) {
+    public Mensalista(Long id, String matricula, String nome, String cargo, Double salario) {
         this.id = id;
+        this.matricula = matricula;
         this.nome = nome;
         this.cargo = cargo;
         this.salario = salario;
@@ -23,6 +25,14 @@ public class Mensalista {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getNome() {
@@ -53,6 +63,7 @@ public class Mensalista {
     public String toString() {
         return "Mensalista{" +
                 "id=" + id +
+                ", matricula='" + matricula + '\'' +
                 ", nome='" + nome + '\'' +
                 ", cargo='" + cargo + '\'' +
                 ", salario=" + salario +
