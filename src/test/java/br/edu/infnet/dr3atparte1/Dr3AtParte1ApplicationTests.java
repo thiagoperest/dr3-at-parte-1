@@ -55,4 +55,21 @@ class Dr3AtParte1ApplicationTests {
         });
     }
 
+    @Test
+    @DisplayName("Teste de integração do endpoint /mensalistas/{matricula}")
+    void testGetMensalistaByMatriculaEndpoint() throws Exception {
+        // Arrange
+        Javalin app = Javalin.create();
+        RouteConfig.configureRoutes(app);
+        
+        // Act & Assert
+        JavalinTest.test(app, (server, client) -> {
+            var response = client.get("/mensalistas/M001");
+
+            assertEquals(200, response.code());
+
+            assertTrue(response.body().string().contains("João Silva"));
+        });
+    }
+
 }
