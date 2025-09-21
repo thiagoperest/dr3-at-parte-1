@@ -47,12 +47,6 @@ O sistema foi modelado seguindo princípios de orientação a objetos, com separ
 - **GET /mensalistas/{matricula}** - Busca mensalista por matrícula
 - **POST /mensalistas** - Criação de novo mensalista com validações
 
-### Validações Implementadas
-- **Campos obrigatórios** - Matrícula, nome, cargo e salário
-- **Formato da matrícula** - Padrão M000 (ex: M001, M002)
-- **Salário positivo** - Maior que zero
-- **Tamanho de campos** - Validação de tamanho mínimo/máximo
-
 ## Como Executar
 
 ### Pré-requisitos
@@ -63,7 +57,7 @@ O sistema foi modelado seguindo princípios de orientação a objetos, com separ
 
 1. **Clone o repositório:**
    ```bash
-   git clone <seu-repositório>
+   git clone https://github.com/thiagoperest/dr3-at-parte-1.git
    cd dr3-at-parte-1
    ```
 
@@ -81,7 +75,7 @@ O sistema foi modelado seguindo princípios de orientação a objetos, com separ
    Item 3: http://localhost:8080/echo
    Item 4: http://localhost:8080/saudacao/{nome}
 
-   Endpoints Rubrica 4 - Sistema de Folha de Pagamento:
+   Endpoints Rubrica 4:
    Item 1: http://localhost:8080/mensalistas
    Item 2: http://localhost:8080/mensalistas/{matricula}
    Item 3: http://localhost:8080/mensalistas (POST)
@@ -165,8 +159,6 @@ O sistema possui dados mockados para demonstração:
 - **Teste de integração** do endpoint POST /mensalistas
 - **Teste de integração** do endpoint GET /mensalistas/{matricula}
 - **Teste de integração** do endpoint GET /mensalistas
-
-Todos os testes usam **JUnit** e **JavalinTest** para requisições HTTP reais.
 
 ## Tecnologias Utilizadas
 
